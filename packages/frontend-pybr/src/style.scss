@@ -1,0 +1,71 @@
+/*
+ * SPDX-FileCopyrightText: syuilo and misskey-project
+ * SPDX-License-Identifier: AGPL-3.0-only
+ */
+
+:root {
+  --app-bg: #f5f7fb;
+  --app-fg: #121826;
+  --app-panel: #ffffff;
+  --app-accent: #4f46e5;
+  --app-border: rgba(15, 23, 42, 0.08);
+  color-scheme: light;
+  font-family: Inter, system-ui, sans-serif;
+}
+
+:root[data-theme='dark'] {
+  --app-bg: #0f172a;
+  --app-fg: #e2e8f0;
+  --app-panel: #111827;
+  --app-accent: #8b5cf6;
+  --app-border: rgba(148, 163, 184, 0.2);
+  color-scheme: dark;
+}
+
+html, body, #app {
+  margin: 0;
+  width: 100%;
+  min-height: 100%;
+  background: var(--app-bg);
+  color: var(--app-fg);
+}
+
+body {
+  min-height: 100vh;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+button {
+  font: inherit;
+}
+
+.empty-page {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background: var(--app-bg);
+  color: var(--app-fg);
+}
+
+.empty-panel {
+  width: min(480px, calc(100vw - 32px));
+  background: var(--app-panel);
+  border: 1px solid var(--app-border);
+  border-radius: 16px;
+  padding: 32px;
+  box-shadow: 0 18px 34px rgba(15, 23, 42, 0.08);
+  text-align: center;
+}
+
+.empty-panel h1 {
+  margin: 0 0 12px;
+  font-size: clamp(1.5rem, 2vw, 2.1rem);
+}
+
+.empty-panel p {
+  margin: 0;
+  opacity: 0.74;
+}

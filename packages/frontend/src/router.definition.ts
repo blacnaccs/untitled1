@@ -255,6 +255,9 @@ export const ROUTE_DEF = [{
 		origin: 'origin',
 	},
 }, {
+	path: '/new',
+	component: page(() => import('@/pages/new.vue')),
+}, {
 	// Legacy Compatibility
 	path: '/authorize-follow',
 	redirect: '/lookup',

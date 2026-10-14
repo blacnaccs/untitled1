@@ -64,6 +64,8 @@
 各エージェントは [shipping-misskey-change スキル](.claude/skills/shipping-misskey-change/SKILL.md) を参照すること。スキルが利用できない環境でも、以下のチェックは必ず実施すること:
 
 1. **lint / test**: ESLint 対象の変更ファイルへ package root から `eslint --quiet` を最後に 1 回実行し、実装変更には最も近い test を選んで実行する。
+   ただし、空ページ・スタブ UI・純粋な見た目調整・文言追加・ルート追加・その他実際のロジックや状態変化が存在しない「トリビアル」な変更は、専用のテストを追加しない。
+   トリビアルな変更はテストの価値が低く、ロジックや振る舞いがない限りテストの対象にしない。実際のロジック、入力/出力、状態遷移、計算、ユーザー向け挙動がある場合のみテストを書く。
    package / repo 全体 lint と広域 test は任意
 2. **backend API 変更時**: `pnpm build-misskey-js-with-types` を実行し `packages/misskey-js/src/autogen/` の差分も commit に含めた
 3. **entity / migration 変更時**: `pnpm --filter backend check-migrations` が pending DDL 0 件で通る / 新規 migration は `up()` と `down()` 両方実装済

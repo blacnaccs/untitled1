@@ -221,6 +221,7 @@ try {
 
 	startChildProcess('pnpm', ['--filter', 'backend', 'dev'], {
 		cwd: _dirname + '/../',
+		env: { ...process.env, VITE_PORT: process.env.VITE_PORT ?? '5173' },
 		stdout: process.stdout,
 		stderr: process.stderr,
 	});

@@ -131,9 +131,7 @@ export function getConfig(): UserConfig {
 			port: 5173,
 			strictPort: true,
 			hmr: {
-				// バックエンド経由での起動時、Viteは5173経由でアセットを参照していると思い込んでいるが実際は3000から配信される
-				// そのため、バックエンドのWSサーバーにHMRのWSリクエストが吸収されてしまい、正しくHMRが機能しない
-				// クライアント側のWSポートをViteサーバーのポートに強制させることで、正しくHMRが機能するようになる
+				// HMR WebSocket connections must bypass the backend and connect directly to Vite.
 				clientPort: 5173,
 			},
 			headers: { // なんか効かない
