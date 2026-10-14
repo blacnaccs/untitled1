@@ -15,15 +15,15 @@ export type RouteDefinition = {
 export const routes: RouteDefinition[] = [
   {
     path: '/',
-    component: 'empty',
+    component: 'home',
   },
   {
-    path: '/new',
-    component: 'empty',
+    path: '/join',
+    component: 'join',
   },
-  {
+	{
     path: '/login',
-    component: 'empty',
+    component: 'login',
   },
 ];
 
@@ -31,7 +31,7 @@ export function resolveRoute(path: string) {
   const normalized = path === '/' ? '/' : path.split('?')[0];
   return routes.find(route => route.path === normalized) ?? {
     path: '/404',
-    component: 'empty',
+    component: '404',
   };
 }
 
